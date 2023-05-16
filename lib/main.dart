@@ -7,18 +7,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  Color color(BuildContext context) {
-    return Theme.of(context).primaryColor;
-  }
 
-  Widget buttonSection(BuildContext context) {
+
+  Widget buttonSection() {
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _buildButtonColumn(color(context), Icons.call, 'CALL'),
-        _buildButtonColumn(color(context), Icons.near_me, 'ROUTE'),
-        _buildButtonColumn(color(context), Icons.share, 'SHARE'),
+        _buildButtonColumn(Colors.blue, Icons.call, 'CALL'),
+        _buildButtonColumn(Colors.green, Icons.near_me, 'ROUTE'),
+        _buildButtonColumn(Colors.black, Icons.share, 'SHARE'),
       ],
     );
   }
@@ -38,6 +36,7 @@ class MyApp extends StatelessWidget {
                     'Oeschinen Lake Campground',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -51,10 +50,15 @@ class MyApp extends StatelessWidget {
             ),
           ),
           Icon(
-            Icons.start,
+            Icons.star,
             color: Colors.red[500],
           ),
-          const Text('41'),
+          const Text(
+              '41',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+          ),
         ],
       ),
     );
@@ -85,19 +89,191 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
         ),
-        body: Stack(
-          children:[
-            Image.asset(
-              'images/lake.jpg',
-              width: 600,
-              height: 240,
-              fit: BoxFit.cover,
+        body: ListView(
+          children: [
+            Stack(
+              children:[
+                Image.asset(
+                  'images/lake.jpg',
+                  width: 600,
+                  height: 240,
+                  fit: BoxFit.cover,
+                ),
+                Positioned(
+                    top: 16,
+                    right: 16,
+                    child: Container(
+                      width: 170,
+                      height: 60,
+                      color: Colors.grey.withOpacity(0.3),
+                      child: buttonSection(),
+                    ),
+
+                ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                    margin: const EdgeInsets.only(left: 16, right: 16),
+                    child: titleSection(),
+                  ),
+                ),
+                Positioned(
+                  top: 16,
+                  left: 16,
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                    child: Center(
+                      child: Text(
+                        '#1',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  )
+                ),
+              ],
             ),
-        ListView(
-            children: [
-              titleSection(),
-              buttonSection(context),
-            ],
+            SizedBox(
+              height: 15,
+            ),
+            Stack(
+              children:[
+                Image.asset(
+                  'images/lake.jpg',
+                  width: 600,
+                  height: 240,
+                  fit: BoxFit.cover,
+                ),
+                Positioned(
+                  top: 16,
+                  right: 16,
+                  child: Container(
+                    width: 170,
+                    height: 60,
+                    color: Colors.grey.withOpacity(0.3),
+                    child: buttonSection(),
+                  ),
+
+                ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                    margin: const EdgeInsets.only(left: 16, right: 16),
+                    child: titleSection(),
+                  ),
+                ),
+                Positioned(
+                    top: 16,
+                    left: 16,
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                      child: Center(
+                        child: Text(
+                          '#2',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Stack(
+              children:[
+                Image.asset(
+                  'images/lake.jpg',
+                  width: 600,
+                  height: 240,
+                  fit: BoxFit.cover,
+                ),
+                Positioned(
+                  top: 16,
+                  right: 16,
+                  child: Container(
+                    width: 170,
+                    height: 60,
+                    color: Colors.grey.withOpacity(0.3),
+                    child: buttonSection(),
+                  ),
+
+                ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      color: Colors.black.withOpacity(0.5),
+                    ),
+                    margin: const EdgeInsets.only(left: 16, right: 16),
+                    child: titleSection(),
+                  ),
+                ),
+                Positioned(
+                    top: 16,
+                    left: 16,
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                      child: Center(
+                        child: Text(
+                          '#3',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
+                ),
+              ],
+            ),
           ],
         ),
       ),
